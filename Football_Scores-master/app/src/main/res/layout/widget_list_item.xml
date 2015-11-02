@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:id="@+id/widget_list_item"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:padding="4dp">
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:orientation="horizontal">
+        
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.4"
+            android:orientation="vertical"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp">
+
+
+            <TextView
+                android:id="@+id/widget_home_team_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HOMENAME"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:id="@+id/widget_home_team_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:textSize="22sp"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.2"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+            <TextView
+                android:id="@+id/widget_game_time"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="TIME"
+                android:textSize="8dp"
+
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.4"
+            android:orientation="vertical"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+            <TextView
+                android:id="@+id/widget_away_team_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AWAYNAME"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:id="@+id/widget_away_team_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textSize="22sp"/>
+
+        </LinearLayout>
+
+
+        
+    </LinearLayout>
+
+</FrameLayout>
