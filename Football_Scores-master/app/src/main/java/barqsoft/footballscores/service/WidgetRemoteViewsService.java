@@ -122,15 +122,7 @@ public class WidgetRemoteViewsService extends RemoteViewsService {
                 Binder.restoreCallingIdentity(identityToken);
             }
 
-
-
-
-
-
-
-
         }
-
 
 
         @Override
@@ -157,7 +149,13 @@ public class WidgetRemoteViewsService extends RemoteViewsService {
             views.setTextViewText(R.id.widget_home_team_score, mCursor.getInt(COL_HOME_GOALS)+"");
             views.setTextViewText(R.id.widget_game_time, mCursor.getString(COL_DATE) );
             views.setTextViewText(R.id.widget_away_team_name, mCursor.getString(COL_AWAY_NAME));
-            views.setTextViewText(R.id.widget_away_team_score, mCursor.getInt(COL_AWAY_GOALS) + "");
+            int awayGoals = mCursor.getInt(COL_AWAY_GOALS);
+            if (awayGoals > 0){
+                views.setTextViewText(R.id.widget_away_team_score, "None");
+            }else{
+                views.setTextViewText(R.id.widget_away_team_score, mCursor.getInt(COL_AWAY_GOALS) + "");
+            }
+
 
             PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0, mIntent, 0);
             views.setOnClickPendingIntent(R.id.widget_container, pendingIntent);

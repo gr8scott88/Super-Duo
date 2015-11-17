@@ -185,10 +185,20 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
         String bookSubTitle = data.getString(data.getColumnIndex(AlexandriaContract.BookEntry.SUBTITLE));
         ((TextView) rootView.findViewById(R.id.bookSubTitle)).setText(bookSubTitle);
 
-        String authors = data.getString(data.getColumnIndex(AlexandriaContract.AuthorEntry.AUTHOR));
-        String[] authorsArr = authors.split(",");
-        ((TextView) rootView.findViewById(R.id.authors)).setLines(authorsArr.length);
-        ((TextView) rootView.findViewById(R.id.authors)).setText(authors.replace(",","\n"));
+
+        String authors = null;
+        String[] authorsArr = new String[0];
+        try {
+            authors = data.getString(data.getColumnIndex(AlexandriaContract.AuthorEntry.AUTHOR));
+            authorsArr = authors.split(",");
+            ((TextView) rootView.findViewById(R.id.authors)).setLines(authorsArr.length);
+            ((TextView) rootView.findViewById(R.id.authors)).setText(authors.replace(",","\n"));
+        } catch (Exception e) {
+            ((TextView) rootView.findViewById(R.id.authors)).setLines(1);
+            ((TextView) rootView.findViewById(R.id.authors)).setText("Author Unknown");
+            e.printStackTrace();
+        }
+
         String imgUrl = data.getString(data.getColumnIndex(AlexandriaContract.BookEntry.IMAGE_URL));
         if(Patterns.WEB_URL.matcher(imgUrl).matches()){
             new DownloadImage((ImageView) rootView.findViewById(R.id.bookCover)).execute(imgUrl);
